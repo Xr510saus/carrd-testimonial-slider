@@ -18,10 +18,31 @@ Please reference the following video for a guide on how to add the slider to you
 8. Publish your website to have the embed appear publicly.
 
 ## Template Preview
-The following video shows the template as is. Text is selectable, the left and right arrow buttons can be used to navigate between testimonials, and the dots at the bottom show which testimonial is currently active.
+The following video shows the template as is. Text is selectable, the left and right arrow buttons can be used to navigate between testimonials, and the dots at the bottom show which testimonial is currently active (the template will always start at the first testimonial, or the leftmost dot). When you only have one testimonial, the buttons and dots disappear.
 
 <p align="center" width="100%">
 <video src="https://github.com/user-attachments/assets/56209fb8-5d92-46b8-a849-0cbdddc861df" width="80%" controls></video>
 </p>
 
-## Editing the code
+## Editing the Code
+The following sections describe how to customize the template to better match your website. It is highly recommended to use a separate text editor / IDE when changing the code, to have a backup and because Carrd gets rid of tabs after pasting the code.
+
+### Changing the Testimonials
+Near the top of the code is the HTML section, which contains the testimonial information. Below is the "template code" for one testimonial:
+```HTML
+    <div class="testimonial">
+      <p class="quote">"quote"</p>
+      <div class="author">
+        <span>name, production company</span>
+      </div>
+    </div>
+```
+To add a new testimonial, simply copy the above code block and add it below the other testimonials, if there are any. Make sure the added code block falls within the testimonial-container section, as outlined below
+```HTML
+  <div class="testimonial-container">
+  ...
+  ADD TESTIMONIAL CODE BLOCK HERE
+  ...
+  </div>
+```
+
