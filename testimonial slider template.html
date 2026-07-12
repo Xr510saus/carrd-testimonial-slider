@@ -1,0 +1,195 @@
+<div class="testimonial-carousel">
+  <button class="arrow left">&#10094;</button>
+
+  <div class="testimonial-container">
+    <div class="testimonial active">
+      <p class="quote">"quote 1"</p>
+      <div class="author">
+        <span>name, production company</span>
+      </div>
+    </div>
+
+    <div class="testimonial">
+      <p class="quote">"quote 2"</p>
+      <div class="author">
+        <span>name, production company</span>
+      </div>
+    </div>
+
+    <div class="testimonial">
+      <p class="quote">"quote 3"</p>
+      <div class="author">
+        <span>name, production company</span>
+      </div>
+    </div>
+  </div>
+
+  <button class="arrow right">&#10095;</button>
+
+  <div class="dots"></div>
+</div>
+
+<style>
+.testimonial-carousel {
+  max-width: 700px;
+  margin: auto;
+  position: relative;
+  font-family: Arial, sans-serif;
+  color: #ffffff;
+}
+
+.testimonial-container {
+  overflow: hidden;
+  position: relative;
+  min-height: 220px;
+}
+
+.testimonial {
+  display: none;
+  background: #2a2b2f;
+  border: 1px solid #ffffff50;
+  border-radius: 16px;
+  padding: 35px;
+  text-align: center;
+  box-sizing: border-box;
+  animation: fade .4s ease;
+}
+
+.testimonial.active {
+  display: block;
+}
+
+.quote {
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 25px;
+  font-style: italic;
+}
+
+.author strong {
+  font-size: 1rem;
+}
+
+.author span {
+  opacity: .7;
+  font-size: .9rem;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #ffffff26;
+  border: none;
+  color: #ffffff;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 22px;
+  transition: .2s;
+  z-index: 10;
+}
+
+.arrow:hover {
+  background: #ffffff4d;
+}
+
+.left {
+  left: -55px;
+}
+
+.right {
+  right: -55px;
+}
+
+.dots {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 6px;
+  border-radius: 50%;
+  background: #ffffff59;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.dot.active {
+  background: #ffffff;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .left {
+    left: -10px;
+  }
+
+  .right {
+    right: -10px;
+  }
+
+  .testimonial {
+    padding: 25px;
+  }
+
+  .quote {
+    font-size: 1rem;
+  }
+}
+</style>
+
+<script>
+const testimonials = document.querySelectorAll('.testimonial');
+const dotsContainer = document.querySelector('.dots');
+const leftButton = document.querySelector('button.left');
+const rightButton = document.querySelector('button.right');
+let current = 0;
+
+function createDots() {
+  testimonials.forEach((_, i) => {
+    const dot = document.createElement('span');
+    dot.className = 'dot';
+    dot.onclick = () => showSlide(i);
+    dotsContainer.appendChild(dot);
+  });
+}
+
+function showSlide(index) {
+  testimonials[current].classList.remove('active');
+  dotsContainer.children[current].classList.remove('active');
+
+  current = (index + testimonials.length) % testimonials.length;
+
+  testimonials[current].classList.add('active');
+  dotsContainer.children[current].classList.add('active');
+}
+
+document.querySelector('.left').onclick = () => showSlide(current - 1);
+document.querySelector('.right').onclick = () => showSlide(current + 1);
+
+
+createDots();
+showSlide(0);
+
+if (testimonials.length < 2) {
+  leftButton.style.display = 'none';
+  rightButton.style.display = 'none';
+  dotsContainer.style.display = 'none';
+}
+
+</script>
