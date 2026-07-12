@@ -64,4 +64,4 @@ The middle section is the CSS section, where you can edit the appearance of each
 can be modified to change the appearance of the slider.
 
 ### Adding Custom Code
-If you're interested in this section, I don't really need to explain anything to you. All the Javascript is at the bottom. Have fun.
+If you're interested in this section, you probably already know how to code, so I don't really need to explain anything to you. All the Javascript is at the bottom. Have fun.
