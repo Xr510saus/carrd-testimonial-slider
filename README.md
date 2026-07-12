@@ -45,4 +45,23 @@ To add a new testimonial, simply copy the above code block and add it below the 
   ...
   </div>
 ```
+To modify the contents of a testimonial, simply put your testimonial information as outlined below
+```HTML
+      <p class="quote">PUT YOUR TESTIMONIAL QUOTE HERE, ADD QUOTATION MARKS IF YOU WANT</p>
+      <div class="author">
+        <span>PUT THE TESTIMONIAL GIVER'S INFORMATION HERE</span>
+      </div>
+```
+To remove a testimonial, simply delete the corresponding code block.
 
+### Changing the Appearance of the Slider
+The middle section is the CSS section, where you can edit the appearance of each element. Everything within
+```HTML
+<style>
+...
+</style>
+```
+can be modified to change the appearance of the slider.
+
+### Adding Custom Code
+If you're interested in this section, I don't really need to explain anything to you. All the Javascript is at the bottom. Have fun.
